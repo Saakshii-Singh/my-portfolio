@@ -1,11 +1,13 @@
-const { useState, useEffect,useRef, useMemo } = require("react")
+import  { useEffect, useMemo, useRef, useState } from "react";
+import studyTogether from "../assets/study-together.png";
+import studyTogether2 from "../assets/study-togther2.png";
 
 
 
 
 const useIsMobile = (query="(max-width: 639px)") => {
   const [isMobile,setIsMobile]=useState(
-    typeof window !== "undefined" ? window.matchMedia(query).matches
+    typeof window !== "undefined" && window.matchMedia(query).matches
   )
 useEffect(() => {
   if(typeof window === "undefined") return;
@@ -38,26 +40,52 @@ export default function Projects(){
     {
       title:"ShopSmart",
       description:"An e-commerce platform that provides personalized shopping recommendations based on user preferences and browsing history.",
-      image:"/images/shopsmart.png",
       link:"https://shopsmart.com"
     },
     {
       title:"healthher",
       description:"A health and wellness app that offers personalized workout plans, nutrition advice, and mental health resources.",
-      image:"/images/healthher.png",
       link:"https://healthher.com"
     },
     {
       title:"SnakeGame",
       description:"A classic snake game built with JavaScript, where players control a snake to eat food and grow longer while avoiding collisions.",
-      image:"/images/snakegame.png",
       link:"https://snakegame.com"
     }
-  ], [])
+  ], [isMobile]);
+  const {scrollYProgress}=useScroll({
+    target:sceneRef,
+    offset:["start start", "end end"]
+  })
+  const thresholds=projects.map((_, i) => (i + 1) / projects.length);
+  const [activeIndex, setActiveIndex]=useState(0); 
+  
+  userMotionValueEvent(scrollYProgress, "change", (v) => {
+    const idx=thresholds.findIndex((t) => v < t);
+    setActiveIndex(idx === -1 ? thresholds.length - 1 : idx)
+  });
+  const activeProject=projects[activeIndex];
 
-  return (
-    <section id="projects" className="py-12 bg-gray-100">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Projects</h2>
-        <div className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-2"} gap-8`}>
-          {projects.map((project, index) => (
+return (
+  <section
+    id="projects"
+    ref={sceneRef}
+    className="relative text-white"
+    style={{
+      height: `${100 * projects.length}vh`,
+      backgroundColor: activeProject.bgColor,
+      transition: "background-color 400ms ease",
+    }}
+  >
+    <div className="sticky top-0 flex items-center justify-center h-screen">
+      <h2
+        className={`text-3xl font-semibold z-10 text-center ${
+          isMobile ? "mt-4" : "mt-8"
+        }`}
+      >
+        My Work
+      </h2>
+      <div></div>
+    </div>
+  </section>
+);
