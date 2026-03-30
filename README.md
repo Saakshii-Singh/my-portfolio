@@ -46,11 +46,4 @@ It showcases my projects, skills, and experience with smooth animations and a cl
 - ⚡ Vite  
 - 🎬 Framer Motion  
 
----
 
-## 📸 Preview
-
-_Add your portfolio screenshot here_
-
-```md
-![Portfolio Screenshot](your-image-link)
