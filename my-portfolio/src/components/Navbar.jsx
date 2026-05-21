@@ -72,23 +72,13 @@ export default function Navbar() {
         </div>
 
         {/* Menu Icon */}
-        <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+        <div className="block lg:absolute lg:right-6 lg:top-6 lg:transform lg:-translate-x-1/2">
           <button
             onClick={() => setMenuOpen(true)}
             className="text-white text-3xl focus:outline-none"
           >
             <FiMenu />
           </button>
-        </div>
-
-        {/* CTA Button */}
-        <div className="hidden lg:block">
-          <a
-            href="#contact"
-            className="bg-gradient-to-r from-pink-500 to-blue-500 text-white px-5 py-2 rounded-full font-medium shadow-lg hover:opacity-90 transition-opacity duration-300"
-          >
-            Reach Out
-          </a>
         </div>
       </nav>
 
