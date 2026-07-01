@@ -9,6 +9,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
+import { FaGithub, FaLink } from "react-icons/fa6";
 
 // ✅ Mobile Hook
 const useIsMobile = (query = "(max-width: 639px)") => {
@@ -47,7 +48,8 @@ export default function Projects() {
         title: "HealthHer",
         description: "Personalized wellness platform.",
         image: healthher,
-        link: "https://github.com/Saakshii-Singh/HealthHer",
+        github: "https://github.com/Saakshii-Singh/HealthHer",
+        live: "https://health-her-phi.vercel.app",
         bgColor: "#0f172a",
       },
 
@@ -55,7 +57,8 @@ export default function Projects() {
         title: "StudyTogether",
         description: "Collaborative learning platform for students.",
         image: studyTogether,
-        link: "https://github.com/Saakshii-Singh/study-together",
+        github: "https://github.com/Saakshii-Singh/study-together",
+        live: "https://studia-one.vercel.app",
         bgColor: "#020617",
       },
 
@@ -63,7 +66,8 @@ export default function Projects() {
         title: "Flipkart Clone",
         description: "E-commerce platform clone.",
         image: studyTogether2,
-        link: "https://github.com/Saakshii-Singh/Flipkart-Clone",
+        github: "https://github.com/Saakshii-Singh/Flipkart-Clone",
+        live: "https://flipcart-clone-main-v74k.vercel.app",
         bgColor: "#111827",
       },
 
@@ -71,7 +75,8 @@ export default function Projects() {
         title: "Portfolio Website",
         description: "Personal portfolio website.",
         image: portfolio,
-        link: "https://github.com/Saakshii-Singh/my-portfolio",
+        github: "https://github.com/Saakshii-Singh/my-portfolio",
+        live: "https://my-portfolio-seven-mu-81.vercel.app/",
         bgColor: "#1f2937",
       },
 
@@ -79,7 +84,8 @@ export default function Projects() {
         title: "SnakeGame",
         description: "Classic JS snake game.",
         image: studyTogether2,
-        link: "https://github.com/Saakshii-Singh/SnakeGame",
+        github: "https://github.com/Saakshii-Singh/SnakeGame",
+        live: "",
         bgColor: "#030712",
       },
     ],
@@ -176,15 +182,28 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* ✅ BUTTON */}
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition duration-300"
-                  >
-                    View Project →
-                  </a>
+                  {/* ✅ CODE & LIVE DEMO BUTTONS */}
+                  <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 border border-white/30 text-white rounded-lg font-medium hover:bg-white/10 hover:border-white transition duration-300"
+                    >
+                      <FaGithub className="text-xl" /> Code
+                    </a>
+
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-black rounded-lg font-medium hover:bg-gray-200 transition duration-300"
+                      >
+                        <FaLink className="text-lg" /> Live Demo
+                      </a>
+                    )}
+                  </div>
 
                 </div>
               </div>
