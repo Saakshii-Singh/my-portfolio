@@ -1,42 +1,62 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCertificate, FaAward, FaGraduationCap } from "react-icons/fa6";
+import { FaCertificate, FaAward, FaGraduationCap, FaLink } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
 
 export default function Certifications() {
   const certifications = [
     {
-      title: "NITI Aayog Certificate",
-      issuer: "Janshikshan Sansthan (NGO)",
+      title: "UI/UX Design Certification",
+      issuer: "UX/UI Design Portfolio Verification",
       date: "2024",
-      description: "Received recognition for active contributions to menstrual hygiene awareness and education campaigns.",
+      description: "Verifies mastery in user research, wireframing, high-fidelity interactive prototyping, and designing human-centric interfaces.",
       icon: <FaAward className="text-3xl text-pink-400" />,
       color: "from-pink-500/20 to-purple-500/20",
+      link: "http://drive.google.com/file/d/19OM-WIFMolSXt7omGcpVZBGKIDgK-M-D/view",
+    },
+    {
+      title: "Architecting Solutions on AWS",
+      issuer: "Amazon Web Services (AWS) | Coursera",
+      date: "2024",
+      description: "Verifies ability to design distributed cloud systems on AWS, optimize resource costs, and implement security and reliability best practices.",
+      icon: <FaGraduationCap className="text-3xl text-orange-400" />,
+      color: "from-orange-500/20 to-yellow-500/20",
+      link: "https://www.coursera.org/account/accomplishments/verify/SY5I1HH7PHLU",
+    },
+    {
+      title: "AWS Cloud Technical Essentials",
+      issuer: "Amazon Web Services (AWS) | Coursera",
+      date: "2024",
+      description: "Verifies foundational knowledge of AWS cloud concepts, core infrastructure services, security, architecture, and deployment models.",
+      icon: <FaCertificate className="text-3xl text-purple-400" />,
+      color: "from-purple-500/20 to-indigo-500/20",
+      link: "https://www.coursera.org/account/accomplishments/verify/CHY8S16RN21T",
+    },
+    {
+      title: "Foundations of User Experience (UX) Design",
+      issuer: "Google | Coursera",
+      date: "2024",
+      description: "Verifies knowledge of UX design concepts, user research, wireframing, prototyping, and user-centered design methodologies.",
+      icon: <FaGraduationCap className="text-3xl text-cyan-400" />,
+      color: "from-cyan-500/20 to-blue-500/20",
+      link: "https://www.coursera.org/account/accomplishments/verify/B9TW734Z2OLY",
     },
     {
       title: "LeetCode Milestone",
       issuer: "LeetCode",
       date: "2024",
       description: "Solved 500+ data structures and algorithms problems with a peak contest rating of 1,580.",
-      icon: <SiLeetcode className="text-3xl text-orange-400" />,
-      color: "from-orange-500/20 to-yellow-500/20",
+      icon: <SiLeetcode className="text-3xl text-yellow-500" />,
+      color: "from-yellow-500/20 to-orange-500/20",
       link: "https://leetcode.com/u/Sakshi987/",
     },
     {
-      title: "Full Stack Web Development",
-      issuer: "Self-Guided Learning",
-      date: "2024",
-      description: "Mastered frontend and backend concepts using React, Node.js, Express, databases, and styling tools.",
-      icon: <FaGraduationCap className="text-3xl text-cyan-400" />,
-      color: "from-cyan-500/20 to-blue-500/20",
-    },
-    {
-      title: "Data Structures & Algorithms",
-      issuer: "NIT Hamirpur",
+      title: "FFE Scholar",
+      issuer: "Foundation for Excellence",
       date: "2023 - Present",
-      description: "Extensive problem-solving experience, utilizing optimized algorithms and data structures in C++.",
-      icon: <FaCertificate className="text-3xl text-purple-400" />,
-      color: "from-purple-500/20 to-indigo-500/20",
+      description: "Selected as an FFE Scholar, a prestigious national scholarship program recognizing academic excellence and professional potential in engineering.",
+      icon: <FaAward className="text-3xl text-emerald-400" />,
+      color: "from-emerald-500/20 to-teal-500/20",
     },
   ];
 
@@ -84,7 +104,11 @@ export default function Certifications() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -6, scale: 1.02 }}
-              className="group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md overflow-hidden transition-all duration-300"
+              className={`group relative rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md overflow-hidden transition-all duration-300 ${
+                index === certifications.length - 1 && certifications.length % 2 !== 0
+                  ? "md:col-span-2"
+                  : ""
+              }`}
             >
               {/* Card Gradient Background Hover Glow */}
               <div className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`} />
@@ -116,7 +140,7 @@ export default function Certifications() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors duration-200"
                     >
-                      View Profile / Proof →
+                      Verify Certificate <FaLink className="text-[10px]" />
                     </a>
                   )}
                 </div>
