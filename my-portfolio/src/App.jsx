@@ -7,6 +7,7 @@ import Home from "./sections/Home.jsx";
 import About from "./sections/About.jsx";
 import Skills from "./sections/Skills.jsx";
 import Projects from "./sections/Projects.jsx";
+import Certifications from "./sections/Certifications.jsx";
 import Contact from "./sections/Contact.jsx";
 import Footer from "./sections/Footer.jsx";
 import IntroAnimation from "./components/IntroAnimation.jsx";
@@ -38,6 +39,7 @@ function App() {
           <About />
           <Skills />
           <Projects />
+          <Certifications />
           <Contact />
           <Footer />
         </div>

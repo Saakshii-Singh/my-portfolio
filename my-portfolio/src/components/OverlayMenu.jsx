@@ -33,7 +33,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
 
             {/* Menu Items */}
             <ul className="space-y-6 text-center">
-              {["Home", "About", "Skills", "Projects", "Contact"].map(
+              {["Home", "About", "Skills", "Projects", "Certifications", "Contact"].map(
                 (item, index) => (
                   <motion.li
                     key={item}
