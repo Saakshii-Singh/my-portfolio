@@ -72,16 +72,16 @@ export default function Home() {
   }, [subIndex, index, deleting, roles]);
 
   return (
-    <section
-      id="home"
-      className="max-w-full h-screen relative bg-black overflow-hidden"
-    >
+  <section
+    id="home"
+    className="max-w-full min-h-screen lg:h-screen relative bg-black overflow-y-auto lg:overflow-hidden pt-28 pb-12 lg:py-0 flex items-center"
+  >
       <ParticlesBackground />
 
       {/* Glows */}
       <div className="absolute inset-0" />
 
-      <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-0 items-center">
         
         {/* LEFT COLUMN — CONTENT */}
         <div className="w-full lg:pl-6 mx-auto max-w-[48rem] flex flex-col justify-center">
@@ -100,18 +100,21 @@ export default function Home() {
             />
           </motion.div>
 
-          {/* Heading */}
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1cd8d2] via-[#302b63] drop-shadow-lg"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            HELLO I'm <br />
-            <span className="text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl lg:whitespace-nowrap">
-              Sakshi Singh
-            </span>
-          </motion.h1>
+         {/* Heading */}
+<motion.h1
+  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight drop-shadow-lg"
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+>
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#1cd8d2]">
+    HELLO I'm
+  </span>
+  <br />
+  <span className="text-white block sm:inline">
+    Sakshi Singh
+  </span>
+</motion.h1>
 
           {/* Bio */}
           <motion.p
@@ -165,8 +168,8 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* RIGHT COLUMN — IMAGE */}
-        <div className="flex items-center justify-end pr-4 lg:pr-0">
+       {/* RIGHT COLUMN — IMAGE */}
+<div className="flex items-center justify-center lg:justify-end pr-0 lg:pr-0">
           <motion.img
             src={image}
             alt="Alien"
